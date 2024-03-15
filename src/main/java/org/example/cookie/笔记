@@ -1,0 +1,20 @@
+会话：一次会话包含多次请求和响应
+    一次会话：浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止
+功能：在一次会话的范围内的多次请求间，共享数据
+方式：
+    客户端会话技术：Cookie
+        概念：客户端会话技术，将数据保存到客户端
+        使用：
+            创建Cookie对象，绑定数据
+                new Cookie(String name,String value)
+            发送Cookie对象
+                response.addCookie(Cookie cookie)
+            获取Cookie，拿到数据
+         细节：
+            可以创建多个Cookie对象，使用response调用多次addCookie方法发送Cookie即可
+            默认情况下，当浏览器关闭后，Cookie数据被销毁，可以设置Cookie的存活时间，
+                方法：setMaxAge(int seconds)
+                    正数：将Cookie数据写到硬盘的文件中。持久化存储，Cookie存活时间
+                    负数：默认值
+                    零：删除cookie信息
+

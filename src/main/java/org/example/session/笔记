@@ -1,0 +1,27 @@
+Session：服务器会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HttpSession
+HttpSession对象：
+    Object getAttribute(String name)
+    void setAttribute(String name,Object value)
+    void removeAttribute(String name)
+
+原理：
+    Session的实现是依赖于Cookie的
+
+细节：
+    当客户端关闭后，服务器未关闭，两次获取的session默认情况下不是同一个，
+    如果需要相同，则可以创建Cookie，键为JSESSIONID，值为session.getId()，
+    同时设置最大存活时间，让cookie持久化
+    当客户端不关闭，服务器关闭后，两次获取的session不是同一个，但是要确保数据不丢失
+    方法：在服务器正常关闭之前，将session对象序列化到硬盘上
+    session的活化：在服务器启动后，将session文件转化为内存中的session对象即可
+    销毁时间：
+        服务器关闭
+        session对象调用invalidate()
+        session默认失效时间为30分钟
+
+特点：
+    session用于存储一次会话的多次请求的数据，存在服务器端
+    session没有数据大小限制，cookie有
+
+
+

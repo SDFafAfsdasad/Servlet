@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+<!--    配置servlet  -->
+    <servlet>
+        <servlet-name>demo1</servlet-name>
+        <servlet-class>org.example.servlet.ServletDemo1</servlet-class>
+<!--        指定Servlet的创建时机
+            1.第一次被访问时创建：<load-on-startup>的值为负数（默认）
+            2.在服务器启动时创建，<load-on-startup>为0或正数-->
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo1</servlet-name>
+        <url-pattern>/demo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>demo2</servlet-name>
+        <servlet-class>org.example.servlet.ServletDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo2</servlet-name>
+        <url-pattern>/demo2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>homework</servlet-name>
+        <servlet-class>org.example.servlet.HomeworkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>homework</servlet-name>
+        <url-pattern>/homework</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>success</servlet-name>
+        <servlet-class>org.example.servlet.HSuccessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>success</servlet-name>
+        <url-pattern>/hSuccessServlet</url-pattern>
+    </servlet-mapping>
+
+<!--    <filter>-->
+<!--        <filter-name>fDemo1</filter-name>-->
+<!--        <filter-class>org.example.filter.FilterDemo1</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>fDemo1</filter-name>-->
+<!--&lt;!&ndash;-->
+<!--    拦截路径配置：-->
+<!--            具体资源路径：/index.jsp 只有访问index.jsp资源时，过滤器才会被执行-->
+<!--            拦截目录：/user/* 访问/user下的所有资源时，过滤器都会被执行-->
+<!--            后缀名拦截：*.jsp 访问所有后缀名为jsp资源时，过滤器都会被执行-->
+<!--            拦截所有资源：/*-->
+<!--    拦截方式配置：资源访问的方式-->
+<!--            注解配置：-->
+<!--                设置dispatcherTypes属性-->
+<!--                    REQUEST：默认值，浏览器直接请求资源-->
+<!--                    FORWARD：转发访问-->
+<!--                    INCLUDE：包含访问资源-->
+<!--                    ERROR：错误跳转-->
+<!--                    ASYNC：异步访问资源-->
+<!--            web.xml配置:-->
+<!--                 <dispatcher>FORWARD</dispatcher>取值同上-->
+
+<!--&ndash;&gt;-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--&lt;!&ndash;        <dispatcher>FORWARD</dispatcher>&ndash;&gt;-->
+<!--    </filter-mapping>-->
+</web-app>
